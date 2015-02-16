@@ -51,7 +51,8 @@ CMD ["--port 8102"]
 
 # Setting the dynomite as the dockerized entry-point application
 RUN echo 'Starting Dynomite'
-# RUN src/dynomite --conf-file=conf/redis_single.yml -v11
+ENTRYPOINT ["src/dynomite", "--conf-file=conf/redis_single.yml", "-v11"]
 
+CMD ["run"]
 
 
