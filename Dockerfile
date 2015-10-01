@@ -44,6 +44,10 @@ RUN autoreconf -fvi \
 RUN echo 'Exposing peer port 8101'
 EXPOSE 8101
 
+# Expose the statistics/admin port
+RUN echo 'Exposing the statistics/admin port 22122'
+EXPOSE 22122
+
 # Default port to acccess Dynomite
 RUN echo 'Exposing client port for Dynomite'
 EXPOSE 8102
