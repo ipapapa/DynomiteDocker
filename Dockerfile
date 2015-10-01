@@ -35,7 +35,7 @@ WORKDIR dynomite/
 RUN autoreconf -fvi \
 	&& ./configure --enable-debug=log \
 	&& CFLAGS="-ggdb3 -O0" ./configure --enable-debug=full \
-	&& make
+	&& make \
 	&& make install
 
 ##################### INSTALLATION ENDS #####################
