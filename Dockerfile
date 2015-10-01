@@ -7,7 +7,7 @@
 FROM ubuntu
 
 # File Author / Maintainer
-MAINTAINER Ioannis Papapanagiotou - Email: ipapapan@purdue.edu
+MAINTAINER Ioannis Papapanagiotou - dynomite@netflix.com
 
 # Update the repository sources list and Install package Build Essential
 RUN apt-get update && apt-get install -y \
@@ -43,6 +43,10 @@ RUN autoreconf -fvi \
 # Expose the peer port
 RUN echo 'Exposing peer port 8101'
 EXPOSE 8101
+
+# Expose the stat/admin port
+RUN echo 'Exposing stat/admin port 22122'
+EXPOSE 22122
 
 # Default port to acccess Dynomite
 RUN echo 'Exposing client port for Dynomite'
