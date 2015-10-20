@@ -2,7 +2,7 @@
 # Dockerfile to build Dynomite container images with Redis as the backend
 # Based on Ubuntu
 ##########################################################################
-# Copyright 2014 Netflix, Inc.
+# Copyright 2015 Netflix, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -59,12 +59,16 @@ RUN autoreconf -fvi \
 RUN echo 'Exposing peer port 8101'
 EXPOSE 8101
 
-# Expose the stat/admin port
-RUN echo 'Exposing stat/admin port 22122'
+# Expose the underlying Redis port
+RUN echo 'Exposing Redis port 22122'
 EXPOSE 22122
 
+# Expose the stats/admin port
+RUN echo 'Exposing stats/admin port 22222'
+EXPOSE 22222
+
 # Default port to acccess Dynomite
-RUN echo 'Exposing client port for Dynomite'
+RUN echo 'Exposing client port for Dynomite 8102'
 EXPOSE 8102
 
 # Default port to execute the entrypoint (Dynomite)
@@ -75,5 +79,6 @@ RUN echo 'Starting Dynomite'
 ENTRYPOINT ["src/dynomite", "--conf-file=conf/redis_single.yml", "-v11"]
 
 CMD ["run"]
+
 
 
