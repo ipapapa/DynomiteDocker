@@ -22,7 +22,7 @@
 FROM ubuntu
 
 # File Author / Maintainer
-MAINTAINER Ioannis Papapanagiotou - dynomite@netflix.com
+MAINTAINER Ioannis Papapanagiotou
 
 # Update the repository sources list and Install package Build Essential
 RUN apt-get update && apt-get install -y \
